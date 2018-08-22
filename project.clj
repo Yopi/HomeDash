@@ -13,7 +13,8 @@
                     [ring/ring-jetty-adapter "1.4.0"]
                     [compojure "1.6.1"]
                     [hiccup "1.0.5"]
-                    [clj-time "0.14.4"]]
+                    [clj-time "0.14.4"]
+                    [com.draines/postal "2.0.2"]]
     :min-lein-version "2.7.1"
     :uberjar-name "homedash-standalone.jar"
     :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
