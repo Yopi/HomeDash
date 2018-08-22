@@ -7,11 +7,10 @@
             [clj-time.local :as l]))
 
 (def good-areas
-  ["Frösunda" "Kungshamra" "Lappkärrsberget"
-    "Pax" "Strix" "Apeln" "Domus" "Forum"
-    "Fyrtalet" "Hugin & Munin" "Idun" "Jerum"
-    "Kurland" "Lucidor" "Mjölner" "Nyponet"
-    "Roslagstull" "Vätan" "Marieberg" "Tanto" ])
+  ["Frösunda" "Kungshamra" "Pax" "Strix" "Apeln"
+    "Domus" "Forum" "Fyrtalet" "Hugin & Munin"
+    "Idun" "Jerum" "Kurland" "Lucidor" "Mjölner"
+    "Nyponet" "Roslagstull" "Vätan" "Marieberg" "Tanto" ])
 
 (defn by-floor-move-in-queue-days [x y]
     (compare [(:move_in_date y) (:floor y) (:queue_days x)] ; Descending move in date + floor, ascending queue days
