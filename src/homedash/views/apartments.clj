@@ -6,12 +6,6 @@
             [clj-time.format :as f]
             [clj-time.local :as l]))
 
-(def good-areas
-  ["Frösunda" "Kungshamra" "Pax" "Strix" "Apeln"
-    "Domus" "Forum" "Fyrtalet" "Hugin & Munin"
-    "Idun" "Jerum" "Kurland" "Lucidor" "Mjölner"
-    "Nyponet" "Roslagstull" "Vätan" "Marieberg" "Tanto" ])
-
 (defn by-floor-move-in-queue-days [x y]
     (compare [(:move_in_date y) (:floor y) (:queue_days x)] ; Descending move in date + floor, ascending queue days
              [(:move_in_date x) (:floor x) (:queue_days y)]))
@@ -52,11 +46,9 @@
 
 (defn display-areas [apartments]
   (for [kv (group-by :area apartments)]
-    (if (some #(= (first kv) %) good-areas)
-      [:div {:class "area"}
-        [:div {:class "ui horizontal divider"} [:h2 (first kv)]]
-        (display-apartments (last kv))]
-      nil)))
+    [:div {:class "area"}
+      [:div {:class "ui horizontal divider"} [:h2 (first kv)]]
+      (display-apartments (last kv))]))
 
 (defn index [apartments]
   (layout/common "SSSB"

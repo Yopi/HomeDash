@@ -13,6 +13,12 @@
 (def sssb-list-all
     "https://www.sssb.se/widgets/?omraden=&objektTyper=&hyraMax=&actionId=&paginationantal=all&callback=j&widgets%5B%5D=objektlista%40lagenheter")
 
+(def good-areas
+  ["Frösunda" "Kungshamra" "Pax" "Strix" "Apeln"
+    "Domus" "Forum" "Fyrtalet" "Hugin & Munin"
+    "Idun" "Jerum" "Kurland" "Lucidor" "Mjölner"
+    "Nyponet" "Roslagstull" "Vätan" "Marieberg" "Tanto" ])
+
 (defn cut-jquery-callback
     "Cuts away the jQuery callback function from JSON response"
     [json]
@@ -57,4 +63,4 @@
     (filter (fn [x] (= (type x) clojure.lang.LazySeq))
       (map
         (fn [apt] (model/update-or-insert! apt ["id = ?" (get apt :id)]))
-        (get-apartments))))
+        (filter (fn [x] (some #(= (get x :area) %) good-areas)) (get-apartments)))))
