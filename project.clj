@@ -14,6 +14,7 @@
                     [compojure "1.6.1"]
                     [hiccup "1.0.5"]
                     [clj-time "0.14.4"]]
+    :min-lein-version "2.7.1"
     :uberjar-name "homedash-standalone.jar"
     :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                                   [ring-mock "0.1.5"]]}
